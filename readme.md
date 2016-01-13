@@ -1,3 +1,3 @@
-# Escudos de futbol
+# Escudos de futbol - TODO
 
 Aplicación web donde se mostrarán los escudos de los equipos de futbol que se inserten desde el panel de usuario.
