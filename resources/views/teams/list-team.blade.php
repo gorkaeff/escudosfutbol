@@ -1,30 +1,29 @@
 @if (count($teams) > 0)
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			Current Tasks
+			Tus equipos
 		</div>
 
 		<div class="panel-body">
 			<table class="table table-striped task-table">
 				<thead>
-					<th>Task</th>
+					<th>Escudo</th>
+					<th>Nombre Equipo</th>
 					<th>&nbsp;</th>
 				</thead>
 				<tbody>
 					@foreach ($teams as $team)
 						<tr>
+							<td class="table-text"><div>{{ $team->link }}</div></td>
 							<td class="table-text"><div>{{ $team->name }}</div></td>
 
-							<!-- Task Delete Button -->
+							<!-- Team Delete Button -->
 							<td>
-								<form action="/task/{{ $team->id }}" method="POST">
-									{{ csrf_field() }}
-									{{ method_field('DELETE') }}
-
+								{!! Form::open(array('route' => array('team.destroy', $team->id), 'method' => 'delete')) !!}
 									<button type="submit" id="delete-task-{{ $team->id }}" class="btn btn-danger">
 										<i class="fa fa-btn fa-trash"></i>Delete
 									</button>
-								</form>
+								{!! Form::close() !!}
 							</td>
 						</tr>
 					@endforeach

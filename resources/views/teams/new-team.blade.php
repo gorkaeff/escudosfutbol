@@ -1,33 +1,30 @@
-<!-- New equipo Form -->
-<form action="/task" method="POST" class="form-horizontal">
-	{{ csrf_field() }}
-
+{!! Form::open(['route' => 'team.store', 'class' => 'form-horizontal']) !!}
 	<!-- Equipo Name -->
 	<div class="form-group">
 		<label for="team-name" class="col-sm-3 control-label">Nombre Equipo: </label>
 		<div class="col-sm-6">
-			<input type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}">
+			<input type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}" required>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="team-link" class="col-sm-3 control-label">URL icono equipo: </label>
 		<div class="col-sm-6">
-			<input type="text" name="link" id="team-link" class="form-control" value="{{ old('task') }}">
+			<input type="text" name="link" id="team-link" class="form-control" value="{{ old('task') }}" required>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="team-link_author" class="col-sm-3 control-label">Sitio del autor (copyright): </label>
 		<div class="col-sm-6">
-			<input type="text" name="link_author" id="team-link_author" class="form-control" value="{{ old('task') }}">
+			<input type="text" name="link_author" id="team-link_author" class="form-control" value="{{ old('task') }}" required>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="team-information" class="col-sm-3 control-label">Información Adicional: </label>
 		<div class="col-sm-6">
-			<input type="textarea" name="information" id="team-information" class="form-control" value="{{ old('task') }}">
+			<textarea name="information" id="team-information" class="form-control" value="{{ old('task') }}"></textarea>
 		</div>
 	</div>
 
@@ -39,4 +36,4 @@
 			</button>
 		</div>
 	</div>
-</form>
+{!! Form::close() !!}

@@ -2,9 +2,8 @@
 
 namespace App\Providers;
 
-use App\Task;
-use App\Policies\TaskPolicy;
-
+use App\Team;
+use App\Policies\TeamPolicy;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Task::class => TaskPolicy::class,
+        Team::class => TeamPolicy::class,
     ];
 
     /**

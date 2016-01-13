@@ -6,8 +6,9 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TeamRepository;
+use App\Team;
 
-class TaskController extends Controller
+class TeamController extends Controller
 {
     /**
      * The team repository instance.
@@ -50,28 +51,34 @@ class TaskController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
+            'link' => 'required|max:255',
+            'link_author' => 'required|max:255'
         ]);
 
-        $request->user()->tasks()->create([
-            'name' => $request->name,
+        $request->user()->teams()->create([
+            'user_id'       => $request->user()->id,
+            'name'          => $request->name,
+            'link'          => $request->link,
+            'link_author'   => $request->link_author,
+            'information'   => $request->information
         ]);
 
-        return redirect('/tasks');
+        return redirect('/teams');
     }
 
     /**
      * Destroy the given task.
      *
      * @param  Request  $request
-     * @param  Task  $task
+     * @param  Team  $team
      * @return Response
      */
-    public function destroy(Request $request, Task $task)
+    public function destroy(Request $request, $team)
     {
-        $this->authorize('destroy', $task);
-
-        $task->delete();
-
-        return redirect('/tasks');
+        $teamDelete = Team::find($team);
+        $this->authorize('destroy', $teamDelete);
+        //$equipoDelete = Team::find($team_id);
+        $teamDelete->delete();
+        return redirect('/teams');
     }
 }

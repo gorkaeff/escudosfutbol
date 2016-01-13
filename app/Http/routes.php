@@ -13,16 +13,16 @@
 
 Route::get('/', ['as' => 'welcome', 'uses'  => 'WelcomeController@index'])->middleware('guest');
 
-// Task Routes
-Route::get('/tasks', 'TaskController@index');
-Route::post('/task', 'TaskController@store');
-Route::delete('/task/{task}', 'TaskController@destroy');
+// Team Routes
+Route::get('/teams', 		  ['as' => 'teams.index',  'uses'  => 'TeamController@index']);
+Route::post('/team', 		  ['as' => 'team.store',   'uses'  => 'TeamController@store']);
+Route::delete('/team/{team}', ['as' => 'team.destroy', 'uses'  => 'TeamController@destroy']);
 
 // Authentication Routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/login',	['as' => 'getLogin',  'uses'  => 'Auth\AuthController@getLogin']);
+Route::post('auth/login',	['as' => 'postLogin', 'uses'  => 'Auth\AuthController@postLogin']);
+Route::get('auth/logout',	['as' => 'getLogout', 'uses'  => 'Auth\AuthController@getLogout']);
 
 // Registration Routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('auth/register',  ['as' => 'getRegister',  'uses'  => 'Auth\AuthController@getRegister']);
+Route::post('auth/register', ['as' => 'postRegister', 'uses'  => 'Auth\AuthController@postRegister']);
