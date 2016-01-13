@@ -15,8 +15,9 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
+        //dd($request->cookie('laravel_session'));     
     	$data['teams'] = Team::orderBy('name', 'asc')->get();
     	$data['last_teams'] = Team::orderBy('id', 'desc')->limit(5)->get();
     	$data['users'] = User::all();

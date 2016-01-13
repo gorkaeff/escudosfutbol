@@ -19,7 +19,7 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-						<li><a href="/auth/register"><i class="fa fa-btn fa-heart"></i>Registrarse</a></li>
+						<li><a href="/auth/register"><i class="fa fa-btn fa-user-plus"></i>Registrarse</a></li>
 						<li><a href="/auth/login"><i class="fa fa-btn fa-sign-in"></i>Acceder</a></li>
 					@else
 						<li class="navbar-text"><i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }}</li>

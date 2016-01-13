@@ -9,15 +9,19 @@
 		class="table-responsive task-table">
 		<thead>
 			<tr>
-				<th data-field="escudo">Escudo</th>
-				<th data-field="equipo" data-sortable="true">Equipo</th>
-				<th data-field="info">Información</th>
+				<th data-field="favorito" class="center">Favorito</th>
+				<th data-field="escudo" class="center">Escudo</th>
+				<th data-field="equipo" data-sortable="true" class="center">Equipo</th>
+				<th data-field="info" >Información</th>
 			</tr>
 		</thead>
 
 		<tbody>
 			@foreach ($teams as $team)
 				<tr>
+					<td class="table-text col-md-1">
+						<div>Icono Favorito</div>
+					</td>
 					<td class="table-text col-md-1">
 						<div>
 							{!! HTML::image(
@@ -34,7 +38,7 @@
 					<td class="table-text">
 						<b><i class="glyphicon glyphicon-tag"></i></b>{{ $team->information != null ? $team->information : 'Sin información'}}<br />
 						<b><i class="glyphicon glyphicon-user"></i></b>{{ $team->user->name }}<br />
-						<b><i class="glyphicon glyphicon-link"></i></b><a href="{{ $team->link }}">Link escudo</a><br />
+						<b><i class="fa fa-btn fa-link"></i></b><a href="{{ $team->link }}">Link escudo</a><br />
 						<b><i class="glyphicon glyphicon-link"></i></b><a href="{{ $team->link_author }}">Link Copyright</a>
 					</td>
 

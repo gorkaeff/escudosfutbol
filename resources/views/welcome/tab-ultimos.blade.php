@@ -8,8 +8,8 @@
 		class="table-responsive task-table">
 		<thead>
 			<tr>
-				<th data-field="escudo">Escudo</th>
-				<th data-field="equipo">Equipo</th>
+				<th data-field="escudo" class="center">Escudo</th>
+				<th data-field="equipo" class="center">Equipo</th>
 				<th data-field="info">Información</th>
 			</tr>
 		</thead>

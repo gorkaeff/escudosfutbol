@@ -2,6 +2,15 @@
 
 @section('content')
 	<div class="container">
+
+		<div class="jumbotron">
+			<h3>Bienvenid@ a escudosfutbol,</h3>
+			<p>Registrate y empieza a añadir escudos que no aparezcan en nuestra base de datos. <br />
+			Al rellenar la ficha deberás indicar el link donde está alojado el escudo y también una referencia desde donde lo has obtenido (wikipedia, tu blog...)<br />
+			Una vez realizado, aparecerá tu escudo y lo podrás votar y compartir en las redes sociales!.
+			</p>
+		</div>
+
 		<div class="col-sm-12">
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active">

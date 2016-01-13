@@ -8,8 +8,8 @@
 		class="table-responsive task-table">
 		<thead>
 			<tr>
-				<th data-field="usuario" data-sortable="true">Usuario</th>
-				<th data-field="equipos">Equipos Insertados</th>
+				<th data-field="usuario" data-sortable="true" class="center">Usuario</th>
+				<th data-field="equipos" class="center">Equipos Insertados</th>
 			</tr>
 		</thead>
 

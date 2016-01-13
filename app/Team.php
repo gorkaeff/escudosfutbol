@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use App\Rating;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
@@ -20,5 +21,10 @@ class Team extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
     }
 }
