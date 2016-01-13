@@ -20,7 +20,23 @@
 			@foreach ($teams as $team)
 				<tr>
 					<td class="table-text col-md-1">
-						<div>Icono Favorito</div>
+						@if ($team->isFavourite)
+							<div>
+								<form action="/ratings/destroy/{{ $team->id }}" method="POST">
+									{{ csrf_field() }}
+									{{ method_field('DELETE') }}
+									<button style="background:white;border:none"><i class="fa fa-heart fa-2x" style="color:red"></i>Eliminar</button>
+								</form>
+							</div>
+						@else
+							<div>
+								<form action="/ratings/store/{{ $team->id }}" method="POST">
+									{{ csrf_field() }}
+									<button style="background:white;border:none"><i class="fa fa-heart-o fa-2x"></i>Favorito</button>
+								</form>
+							</div>
+						@endif
+						
 					</td>
 					<td class="table-text col-md-1">
 						<div>

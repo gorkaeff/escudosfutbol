@@ -7,11 +7,11 @@
 		<div class="panel-body">
 			<table class="table table-striped task-table">
 				<thead>
-					<th>Escudo</th>
-					<th>Nombre Equipo</th>
-					<th>Obtenido desde</th>
-					<th>Votos</th>
-					<th>Acciones</th>
+					<th class="center">Escudo</th>
+					<th class="center">Nombre Equipo</th>
+					<th class="center">Obtenido desde</th>
+					<th class="center">Votos</th>
+					<th class="center">Acciones</th>
 				</thead>
 				<tbody>
 					@foreach ($teams as $team)
@@ -31,10 +31,10 @@
 								<div>{{ $team->link_author }}</div>
 							</td>
 							<td class="table-text">
-								<div>0</div>
+								<div>{{ $team->ratings->count() }}</div>
 							</td>
 							<td class="table-text">
-								<div><a href="{!! route('team.destroy', [$team->id]) !!}">Editar</a></div>
+								<div><a href="{!! route('team.edit', [$team->id]) !!}">Editar</a></div>
 							</td>
 						</tr>
 					@endforeach

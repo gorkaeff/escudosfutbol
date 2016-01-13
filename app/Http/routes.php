@@ -20,6 +20,9 @@ Route::post('/team', 		  ['as' => 'team.store',   'uses'  => 'TeamController@sto
 Route::delete('/team/{team}', ['as' => 'team.destroy', 'uses'  => 'TeamController@destroy']);
 Route::patch('/team/{team}',  ['as' => 'team.update',  'uses'  => 'TeamController@update']);
 
+Route::post('/ratings/store/{team}', 	 ['as' => 'ratings.store',   'uses'  => 'RatingController@store']);
+Route::delete('/ratings/destroy/{team}', ['as' => 'ratings.destroy', 'uses'  => 'RatingController@destroy']);
+
 // Authentication Routes...
 Route::get('auth/login',	['as' => 'getLogin',  'uses'  => 'Auth\AuthController@getLogin']);
 Route::post('auth/login',	['as' => 'postLogin', 'uses'  => 'Auth\AuthController@postLogin']);
