@@ -1,3 +1,3 @@
-# Laravel Quickstart - Task List With Authentication
+# Escudos de futbol
 
-Documentation In Progress.
+Aplicación web donde se mostrarán los escudos de los equipos de futbol que se inserten desde el panel de usuario.
