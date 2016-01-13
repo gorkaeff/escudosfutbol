@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Team;
 
 class WelcomeController extends Controller
 {
@@ -15,6 +16,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('welcome.welcome');
+    	$data['teams'] = Team::orderBy('name', 'asc')->get();
+    	$data['last_teams'] = Team::orderBy('id', 'desc')->limit(5)->get();
+        return view('welcome.welcome', $data);
     }
 }

@@ -1,7 +1,7 @@
 @if (count($teams) > 0)
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			Listado de Tus equipos añadidos a la aplicación
+			Listado de tus equipos añadidos a la aplicación
 		</div>
 
 		<div class="panel-body">
@@ -9,16 +9,29 @@
 				<thead>
 					<th>Escudo</th>
 					<th>Nombre Equipo</th>
+					<th>Obtenido desde</th>
+					<th>Votos</th>
 					<th>Acciones</th>
 				</thead>
 				<tbody>
 					@foreach ($teams as $team)
 						<tr>
 							<td class="table-text">
-								<div>{{ $team->link }}</div>
+								<div>
+									{!! HTML::image(
+									$team->link, 
+									'', 
+									array('class' => 'img-rounded fotoEscudo' )) !!}
+								</div>
 							</td>
 							<td class="table-text">
 								<div>{{ $team->name }}</div>
+							</td>
+							<td class="table-text">
+								<div>{{ $team->link_author }}</div>
+							</td>
+							<td class="table-text">
+								<div>0</div>
 							</td>
 							<td class="table-text">
 								<div><a href="{!! route('team.destroy', [$team->id]) !!}">Editar</a></div>

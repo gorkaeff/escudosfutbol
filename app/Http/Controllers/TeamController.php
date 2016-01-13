@@ -20,7 +20,7 @@ class TeamController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param  TeamRepository  $tasks
+     * @param  TeamRepository  $teamRepo
      * @return void
      */
     public function __construct(TeamRepository $teamRepo)
@@ -91,7 +91,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Destroy the given task.
+     * Destroy the given team.
      *
      * @param  Request  $request
      * @param  Team  $team

@@ -15,7 +15,7 @@ class Team extends Model
     protected $fillable = ['id', 'user_id', 'name', 'link', 'link_author', 'information'];
 
     /**
-     * Get the user that owns the task.
+     * Get the user that owns the team.
      */
     public function user()
     {

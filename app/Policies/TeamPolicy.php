@@ -11,7 +11,7 @@ class TeamPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine if the given user can delete the given task.
+     * Determine if the given user can delete the given team.
      *
      * @param  User  $user
      * @param  Team  $team

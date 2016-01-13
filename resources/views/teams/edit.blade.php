@@ -7,7 +7,7 @@
 			<div class="form-group">
 				<label for="team-name" class="col-sm-3 control-label">Nombre Equipo: </label>
 				<div class="col-sm-6">
-					<input type="text" name="name" id="task-name" class="form-control" value="{{$team->name}}" required>
+					<input type="text" name="name" id="team-name" class="form-control" value="{{$team->name}}" required>
 				</div>
 			</div>
 
