@@ -5,14 +5,14 @@ namespace App;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Team extends Model
 {
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['id', 'user_id', 'name', 'link', 'link_author', 'information'];
 
     /**
      * Get the user that owns the task.

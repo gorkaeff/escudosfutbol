@@ -2,48 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\TaskRepository;
+use App\Repositories\TeamRepository;
 
 class TaskController extends Controller
 {
     /**
-     * The task repository instance.
+     * The team repository instance.
      *
-     * @var TaskRepository
+     * @var TeamRepository
      */
-    protected $tasks;
+    protected $teamRepo;
 
     /**
      * Create a new controller instance.
      *
-     * @param  TaskRepository  $tasks
+     * @param  TeamRepository  $tasks
      * @return void
      */
-    public function __construct(TaskRepository $tasks)
+    public function __construct(TeamRepository $teamRepo)
     {
         $this->middleware('auth');
-        $this->tasks = $tasks;
+        $this->teamRepo = $teamRepo;
     }
 
     /**
-     * Display a list of all of the user's task.
+     * Display a list of all of the user's teams.
      *
      * @param  Request  $request
      * @return Response
      */
     public function index(Request $request)
     {
-        return view('tasks.index', [
-            'tasks' => $this->tasks->forUser($request->user()),
-        ]);
+        $data['teams'] = $this->teamRepo->userTeams($request->user());
+        return view('teams.index', $data);
     }
 
     /**
-     * Create a new task.
+     * Create a new team.
      *
      * @param  Request  $request
      * @return Response
