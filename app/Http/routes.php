@@ -15,8 +15,10 @@ Route::get('/', ['as' => 'welcome', 'uses'  => 'WelcomeController@index'])->midd
 
 // Team Routes
 Route::get('/teams', 		  ['as' => 'teams.index',  'uses'  => 'TeamController@index']);
+Route::get('/team/{team}', 	  ['as' => 'team.edit',    'uses'  => 'TeamController@edit']);
 Route::post('/team', 		  ['as' => 'team.store',   'uses'  => 'TeamController@store']);
 Route::delete('/team/{team}', ['as' => 'team.destroy', 'uses'  => 'TeamController@destroy']);
+Route::patch('/team/{team}',  ['as' => 'team.update',  'uses'  => 'TeamController@update']);
 
 // Authentication Routes...
 Route::get('auth/login',	['as' => 'getLogin',  'uses'  => 'Auth\AuthController@getLogin']);

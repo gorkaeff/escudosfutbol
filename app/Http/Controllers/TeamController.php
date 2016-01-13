@@ -41,6 +41,11 @@ class TeamController extends Controller
         return view('teams.index', $data);
     }
 
+    public function edit(Request $request, $team_id){
+        $data['team'] = Team::find($team_id);
+        return view('teams.edit', $data);
+    }
+
     /**
      * Create a new team.
      *
@@ -66,6 +71,25 @@ class TeamController extends Controller
         return redirect('/teams');
     }
 
+    public function update(Request $request, $team_id)
+    {
+        $equipo = Team::find($team_id);
+
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'link' => 'required|max:255',
+            'link_author' => 'required|max:255'
+        ]);
+
+        $equipo->name = $request->name;
+        $equipo->link = $request->link;
+        $equipo->link_author = $request->link_author;
+        $equipo->information = $request->information;
+        $equipo->update();
+
+        return redirect('/teams');
+    }
+
     /**
      * Destroy the given task.
      *
@@ -77,7 +101,6 @@ class TeamController extends Controller
     {
         $teamDelete = Team::find($team);
         $this->authorize('destroy', $teamDelete);
-        //$equipoDelete = Team::find($team_id);
         $teamDelete->delete();
         return redirect('/teams');
     }

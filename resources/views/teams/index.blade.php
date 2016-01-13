@@ -14,6 +14,8 @@
 					@include('teams.new-team')
 				</div>
 			</div>
+		</div>
+		<div class="col-sm-12">
 			@include('teams.list-team')
 		</div>
 	</div>
