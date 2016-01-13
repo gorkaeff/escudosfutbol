@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Team;
+use App\User;
 
 class WelcomeController extends Controller
 {
@@ -18,6 +19,7 @@ class WelcomeController extends Controller
     {
     	$data['teams'] = Team::orderBy('name', 'asc')->get();
     	$data['last_teams'] = Team::orderBy('id', 'desc')->limit(5)->get();
+    	$data['users'] = User::all();
         return view('welcome.welcome', $data);
     }
 }

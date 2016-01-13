@@ -9,6 +9,15 @@ body {
 
 .table-text div {
 	padding-top: 6px;
+	text-align: center;
+}
+
+.table-text i{
+	margin-right: 15px;
+}
+
+.listado_usuarios_table{
+	width: 50%;
 }
 
 .fotoEscudo{
@@ -17,7 +26,7 @@ body {
 }
 
 .fotoEscudoBig{
-	margin: 10%;
-	width: 80%;
-	height: 80%;
+	margin: 20%;
+	width: 60%;
+	height: 60%;
 }

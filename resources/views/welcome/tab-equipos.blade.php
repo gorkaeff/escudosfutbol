@@ -12,7 +12,6 @@
 				<th data-field="escudo">Escudo</th>
 				<th data-field="equipo" data-sortable="true">Equipo</th>
 				<th data-field="info">Información</th>
-				<th data-field="votos">Votos</th>
 			</tr>
 		</thead>
 
@@ -28,20 +27,17 @@
 						</div>
 					</td>
 
-					<td class="table-text">
+					<td class="table-text col-md-3">
 						<div>{{ $team->name }}</div>
 					</td>
 
 					<td class="table-text">
-						<b><i class="glyphicon glyphicon-tag"></i>: </b>{{ $team->information }}<br />
-						<b><i class="glyphicon glyphicon-user"></i>:</b>{{ $team->user->name }}<br />
-						<b><i class="glyphicon glyphicon-link"></i>:</b><a href="{{ $team->link }}">{{ $team->link }}</a><br />
-						<b><i class="glyphicon glyphicon-link"></i>:</b><a href="{{ $team->link_author }}">{{ $team->link_author }}</a>
+						<b><i class="glyphicon glyphicon-tag"></i></b>{{ $team->information != null ? $team->information : 'Sin información'}}<br />
+						<b><i class="glyphicon glyphicon-user"></i></b>{{ $team->user->name }}<br />
+						<b><i class="glyphicon glyphicon-link"></i></b><a href="{{ $team->link }}">Link escudo</a><br />
+						<b><i class="glyphicon glyphicon-link"></i></b><a href="{{ $team->link_author }}">Link Copyright</a>
 					</td>
 
-					<td class="table-text">
-						<div>0</div>
-					</td>
 				</tr>
 			@endforeach
 		</tbody>

@@ -13,12 +13,16 @@
 				<li role="presentation">
 					<a href="#ultimos" aria-controls="ultimos" role="tab" data-toggle="tab">Últimos Equipos</a>
 				</li>
+				<li role="presentation">
+					<a href="#usuarios" aria-controls="usuarios" role="tab" data-toggle="tab">Usuarios</a>
+				</li>
 			</ul>
 
 			<div class="tab-content">
 				@include('welcome.tab-equipos')
 				@include('welcome.tab-votos')
 				@include('welcome.tab-ultimos')
+				@include('welcome.tab-usuarios')
 			</div>
 
 		</div>

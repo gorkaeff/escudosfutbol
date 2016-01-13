@@ -9,21 +9,20 @@
 		<thead>
 			<tr>
 				<th data-field="escudo">Escudo</th>
-				<th data-field="equipo" data-sortable="true">Equipo</th>
+				<th data-field="equipo">Equipo</th>
 				<th data-field="info">Información</th>
-				<th data-field="votos">Votos</th>
 			</tr>
 		</thead>
 
 		<tbody>
-			@foreach ($teams as $team)
+			@foreach ($last_teams as $team)
 				<tr>
 					<td class="table-text col-md-1">
 						<div>
 							{!! HTML::image(
 							$team->link, 
 							'', 
-							array('class' => 'fotoEscudo' )) !!}
+							array('class' => 'fotoEscudoBig' )) !!}
 						</div>
 					</td>
 
@@ -32,14 +31,9 @@
 					</td>
 
 					<td class="table-text">
-						<b>Usuario: </b>{{ $team->user->name }}<br />
-						<b>Link foto: </b><a href="{{ $team->link }}">{{ $team->link }}</a><br />
-						<b>Link Copyright: </b><a href="{{ $team->link_author }}">{{ $team->link_author }}</a><br />
-						<b>Información: </b>{{ $team->information }}<br />
-					</td>
-
-					<td class="table-text">
-						<div>0</div>
+						<b><i class="glyphicon glyphicon-tag"></i></b>{{ $team->information != null ? $team->information : 'Sin información'}}<br />
+						<b><i class="glyphicon glyphicon-user"></i></b>{{ $team->user->name }}<br />
+						<b><i class="glyphicon glyphicon-calendar"></i></b>{{ date('d/m/Y', strtotime($team->created_at)) }}
 					</td>
 				</tr>
 			@endforeach
