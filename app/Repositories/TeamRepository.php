@@ -17,4 +17,26 @@ class TeamRepository
     {
         return Team::where('user_id', $user->id)->orderBy('created_at', 'asc')->get();
     }
+
+    public function isTeamForUser(User $user, $team_id)
+    {
+        $equipo = Team::find($team_id);
+
+        if (!$equipo){
+            abort(404);
+        }
+        
+        if ($user->role === 'app_admin')
+        {
+            return true;
+        }
+
+        if ($equipo->user->id === $user->id){
+            return true;
+        } else {
+            //unauthorized
+            abort(401);
+        }
+
+    }
 }

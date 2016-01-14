@@ -42,6 +42,10 @@ class TeamController extends Controller
     }
 
     public function edit(Request $request, $team_id){
+        //Controlar si puede editarlo o no
+        $this->teamRepo->isTeamForUser($request->user(), $team_id);
+
+        //Si consigue pasar la validacion, vamos a ello
         $data['team'] = Team::find($team_id);
         return view('teams.edit', $data);
     }
@@ -77,6 +81,10 @@ class TeamController extends Controller
     {
         $equipo = Team::find($team_id);
 
+        if (!$equipo){
+            abort(404);
+        }
+
         $this->validate($request, [
             'name' => 'required|max:255',
             'link' => 'required|max:255',
@@ -104,6 +112,11 @@ class TeamController extends Controller
     public function destroy(Request $request, $team)
     {
         $teamDelete = Team::find($team);
+
+        if (!$teamDelete){
+            abort(404);
+        }
+
         $this->authorize('destroy', $teamDelete);
         $teamDelete->delete();
 

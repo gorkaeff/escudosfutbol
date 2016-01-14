@@ -21,6 +21,11 @@ class RatingController extends Controller
     public function store(Request $request, $team_id)
     {
         $team = Team::find($team_id);
+
+        if (!$team){
+            abort(404);
+        }
+
         $message = $team->name." es uno de tus equipos favoritos! Enhorabuena";
 
         session_start();
@@ -41,6 +46,11 @@ class RatingController extends Controller
     public function destroy($team_id)
     {
         $team = Team::find($team_id);
+
+        if (!$team){
+            abort(404);
+        }
+        
         $message = "".$team->name." ha dejado de ser un equipo favorito. ¿Por qué?";
 
         session_start();
