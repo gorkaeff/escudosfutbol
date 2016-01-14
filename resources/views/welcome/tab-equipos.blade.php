@@ -12,7 +12,7 @@
 				<th data-field="favorito" class="center">Favorito</th>
 				<th data-field="escudo" class="center">Escudo</th>
 				<th data-field="equipo" data-sortable="true" class="center">Equipo</th>
-				<th data-field="info" >Información</th>
+				<th data-field="info">Información</th>
 			</tr>
 		</thead>
 
@@ -57,7 +57,6 @@
 						<b><i class="fa fa-btn fa-link"></i></b><a href="{{ $team->link }}">Link escudo</a><br />
 						<b><i class="glyphicon glyphicon-link"></i></b><a href="{{ $team->link_author }}">Link Copyright</a>
 					</td>
-
 				</tr>
 			@endforeach
 		</tbody>

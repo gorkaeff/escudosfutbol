@@ -42,3 +42,7 @@ body {
 table form{
 	margin: 10%;
 }
+
+.jumbotron .row{
+	margin-left: 0px;
+}
