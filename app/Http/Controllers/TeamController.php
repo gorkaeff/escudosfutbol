@@ -37,7 +37,7 @@ class TeamController extends Controller
      */
     public function index(Request $request)
     {
-        $data['teams'] = $this->teamRepo->userTeams($request->user());
+        $data['teams'] = $request->user()->role === 'app_admin' ? Team::all() : $this->teamRepo->userTeams($request->user());
         return view('teams.index', $data);
     }
 

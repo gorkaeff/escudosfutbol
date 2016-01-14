@@ -11,6 +11,10 @@
 			<th data-field="nombre" class="center">Nombre Equipo</th>
 			<th data-field="obtenido" class="center">Obtenido desde</th>
 			<th data-field="votos" class="center">Votos</th>
+			@if(Auth::user()->role === 'app_admin')
+				<th data-field="info" class="center">Info.</th>
+				<th data-field="usuario" class="center">Usuario</th>
+			@endif
 			<th data-field="acciones" class="center">Acciones</th>
 		</tr>
 	</thead>
@@ -35,6 +39,14 @@
 				<td class="table-text">
 					<div>{{ $team->ratings->count() }}</div>
 				</td>
+				@if(Auth::user()->role === 'app_admin')
+					<td class="table-text">
+						<div>{{ $team->information }}</div>
+					</td>
+					<td class="table-text">
+						<div>{{ $team->user->name }}</div>
+					</td>
+				@endif
 				<td class="table-text">
 					<div><a href="{!! route('team.edit', [$team->id]) !!}">Editar</a></div>
 				</td>
