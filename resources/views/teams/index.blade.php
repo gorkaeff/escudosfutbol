@@ -2,7 +2,9 @@
 
 @section('content')
 	<div class="container">
+		
 		<div class="col-sm-offset-2 col-sm-8">
+			
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					Añadir Nuevo Equipo
@@ -15,8 +17,12 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="col-sm-12">
+			@include('common.status')
 			@include('teams.list-team')
 		</div>
+
+		
 	</div>
 @endsection

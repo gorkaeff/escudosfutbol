@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rating;
+use App\Team;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -19,13 +20,16 @@ class RatingController extends Controller
      */
     public function store(Request $request, $team_id)
     {
+        $team = Team::find($team_id);
+        $message = $team->name." es uno de tus equipos favoritos! Enhorabuena";
+
         session_start();
         $rating = new Rating;
         $rating->team_id = $team_id;
         $rating->session = $_SESSION["session"];
         $rating->save();
 
-        return redirect('/');
+        return redirect()->route('welcome')->with('status', 'success')->with('message', $message);
     }
 
     /**
@@ -36,9 +40,13 @@ class RatingController extends Controller
      */
     public function destroy($team_id)
     {
+        $team = Team::find($team_id);
+        $message = "".$team->name." ha dejado de ser un equipo favorito. ¿Por qué?";
+
         session_start();
         $registro = Rating::where('team_id', '=', $team_id)->where('session', '=', $_SESSION["session"])->get();
         $registro[0]->delete();
-        return redirect('/');
+        
+        return redirect()->route('welcome')->with('status', 'danger')->with('message', $message);
     }
 }

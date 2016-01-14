@@ -28,6 +28,7 @@
 			</ul>
 
 			<div class="tab-content">
+				@include('common.status')
 				@include('welcome.tab-equipos')
 				@include('welcome.tab-votos')
 				@include('welcome.tab-ultimos')

@@ -19,12 +19,15 @@ class WelcomeController extends Controller
     public function index(Request $request)
     {   
         $this->generateSessionValueIfNotExists();
+
         $data['teams'] = [];     
     	$teams = Team::orderBy('name', 'asc')->get();
+
         foreach ($teams as $team) {
             $isFavourite = Rating::where('session', '=', $_SESSION["session"])
                                  ->where('team_id', '=', $team->id)
                                  ->get();
+                                 
             if (count($isFavourite) > 0){
                 $team->isFavourite = true;
             } else {
@@ -32,7 +35,8 @@ class WelcomeController extends Controller
             }
             array_push($data['teams'], $team); 
         };
-        //$data['favourites'] = Rating::where('session', '=', $request->cookie('laravel_session'))->get();
+
+        $data['ratings'] = Rating::all();
     	$data['last_teams'] = Team::orderBy('id', 'desc')->limit(5)->get();
     	$data['users'] = User::all();
         return view('welcome.welcome', $data);

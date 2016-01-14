@@ -68,7 +68,9 @@ class TeamController extends Controller
             'information'   => $request->information
         ]);
 
-        return redirect('/teams');
+        return redirect()->route('teams.index')
+            ->with('status', 'success')
+            ->with('message', 'Equipo creado correctamente! Añade más para llegar a todos los equipos del mundo ;)');
     }
 
     public function update(Request $request, $team_id)
@@ -87,7 +89,9 @@ class TeamController extends Controller
         $equipo->information = $request->information;
         $equipo->update();
 
-        return redirect('/teams');
+        return redirect()->route('teams.index')
+            ->with('status', 'success')
+            ->with('message', 'Equipo actualizado correctamente! Informa a tus amigos de la actualización.');
     }
 
     /**
@@ -102,6 +106,9 @@ class TeamController extends Controller
         $teamDelete = Team::find($team);
         $this->authorize('destroy', $teamDelete);
         $teamDelete->delete();
-        return redirect('/teams');
+
+        return redirect()->route('teams.index')
+            ->with('status', 'success')
+            ->with('message', 'Equipo eliminado correctamente. ¿No te gustaba?, ¿Estaba mal creado? Espero que nos ayudes');
     }
 }
