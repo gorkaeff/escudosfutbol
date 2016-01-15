@@ -37,25 +37,27 @@
 				<div class="col-md-3"></div>
 				<div class="col-md-3">
 					<div class="form-group">
-						<div class="col-sm-offset-3 col-sm-3">
-							<button type="submit" class="btn btn-default">
-								<i class="fa fa-btn fa-plus"></i>Actualizar Equipo
-							</button>
-						</div>
+						<button type="submit" class="btn btn-default">
+							<i class="fa fa-btn fa-plus"></i>Actualizar Equipo
+						</button>
 					</div>
-				</div>
-				<div class="col-md-3">
-					<form action="/team/{{ $team->id }}" method="POST">
-						{{ csrf_field() }}
-						{{ method_field('DELETE') }}
-						<button type="submit" class="btn btn-danger">
-								<i class="fa fa-btn fa-minus-circle"></i>Borrar Equipo
-							</button>
-					</form>
 				</div>
 			</div>
 
 		{!! Form::close() !!}
+
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<form action="/team/{{ $team->id }}" method="POST">
+					{{ csrf_field() }}
+					{{ method_field('DELETE') }}
+					<button type="submit" class="btn btn-danger">
+						<i class="fa fa-btn fa-minus-circle"></i>Borrar Equipo
+					</button>
+				</form>
+			</div>
+		</div>
 
 	</div>
 @endsection
