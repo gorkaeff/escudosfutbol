@@ -53,7 +53,7 @@
 
 					<td class="table-text">
 						<b><i class="glyphicon glyphicon-tag"></i></b>{{ $team->information != null ? $team->information : 'Sin información'}}<br />
-						<b><i class="glyphicon glyphicon-user"></i></b>{{ $team->user->name }}<br />
+						<b><i class="glyphicon glyphicon-user"></i></b>{{ $team->user["name"] }}<br />
 						<b><i class="fa fa-btn fa-link"></i></b><a href="{{ $team->link }}">Link escudo</a><br />
 						<b><i class="glyphicon glyphicon-link"></i></b><a href="{{ $team->link_author }}">Link Copyright</a>
 					</td>
