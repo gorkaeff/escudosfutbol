@@ -3,6 +3,10 @@ body {
 	margin-top: 25px;
 }
 
+.contenidoPagina{
+	margin-bottom: 100px;
+}
+
 .jumbotron p{
 	font-size: 14px;
 }
@@ -45,4 +49,23 @@ table form{
 
 .jumbotron .row{
 	margin-left: 0px;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	background-color: #f5f5f5;
+	z-index: 2;
+}
+
+.footer .container{
+	margin-top: 20px;
+	font-weight: 800;
+}
+
+.footer .container .col-md-5 a{
+	float: right;
 }
