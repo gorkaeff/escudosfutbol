@@ -111,6 +111,8 @@ class TeamController extends Controller
      */
     public function destroy(Request $request, $team)
     {
+        $this->teamRepo->isTeamForUser($request->user(), $team);
+
         $teamDelete = Team::find($team);
 
         if (!$teamDelete){
